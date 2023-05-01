@@ -88,7 +88,8 @@ contract Game is KeeperCompatibleInterface, ChainlinkClient, ConfirmedOwner {
             address(this),
             this.fulfill.selector
         );
-        req.add("get", "api/generateReward");
+        req.add("get", "www.colaborativeAI_hs/generateReward");
+        req.add("body", "{reward:,}");
         req.add("path", "res");
         req.addInt("times", 1);
         return sendChainlinkRequest(req, s_fee);
@@ -116,7 +117,7 @@ contract Game is KeeperCompatibleInterface, ChainlinkClient, ConfirmedOwner {
             address(this),
             this.fulfill.selector
         );
-        req.add("post", "api/data");
+        req.add("post", "www.colaborativeAI_hs/data");
         req.add("body", str);
         req.add("path", "res");
         req.addInt("times", 1);
@@ -135,7 +136,7 @@ contract Game is KeeperCompatibleInterface, ChainlinkClient, ConfirmedOwner {
             address(this),
             this.fulfill.selector
         );
-        req.add("post", "api/getReward");
+        req.add("post", "www.colaborativeAI_hs/getReward");
         req.add("body", index);
         req.add("path", "res");
         req.addInt("times", 10 ** 8);
